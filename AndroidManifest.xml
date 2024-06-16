@@ -1,0 +1,9 @@
+<manifest xmlns:android="https://schemas.android.com/apk/res/android"
+          package="com.mraethel.PermissionLogger">
+  <application>
+    <service android:process=".PermissionLogger"
+             android:enabled="true"
+             android:exported="true"
+             android:permission="android.permission.BIND_PERMISSION_LOGGER"/>
+  </application>
+</manifest>
