@@ -6,5 +6,9 @@ public class PermissionLog {
   @ColumnInfo(name = "time")
   public whatevertime time;
 
-  @ColumnInfo(name = "etc")
+  @ColumnInfo(name = "popup")
+  
+  @ColumnInfo(name = "settings")
+
+  //...
 }

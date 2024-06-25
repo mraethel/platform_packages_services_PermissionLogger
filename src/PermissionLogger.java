@@ -25,7 +25,7 @@ public class PermissionLogger extends Service {
         case MSG_LOG: plao.logPermissionEvent((PermissionLog) msg.obj); break;
         case MSG_READ: plao.getAll(); break;
         case MSG_DEL: plao.clearAllTables(); break;
-        default: break;
+        default: break; // logging needs to be done here! i.e. message details
       }
     }
   }
