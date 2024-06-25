@@ -3,7 +3,7 @@ android_app {
                                         // Must be unique across all modules.
   priviliged: true,                     // Specifies that this app should be installed to the priv-app directory,
                                         // where the system will grant it additional privileges not available to normal apps.
-  srcs: ["src/**/*.java"],              // list of source files used to compile the Java module.
+  srcs: ["src/*.kt"],                   // list of source files used to compile the Kotlin module.
                                         // May be .java, .kt, .logtags, .proto, or .aidl files.
   static_libs: ["androidx.room_room"],  // list of java libraries that will be compiled into the resulting jar
   certificate: "???",                   // The name of a certificate in the default certificate directory,
