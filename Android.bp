@@ -1,14 +1,24 @@
 android_app {
-  name: "PermissionLogger",             // The name of the module.
-                                        // Must be unique across all modules.
-  privileged: true,                     // Specifies that this app should be installed to the priv-app directory,
-                                        // where the system will grant it additional privileges not available to normal apps.
-  srcs: ["src/**/*.kt"],                // list of source files used to compile the Kotlin module.
-                                        // May be .java, .kt, .logtags, .proto, or .aidl files.
-  static_libs: ["androidx.room_room"],  // list of java libraries that will be compiled into the resulting jar
-  certificate: "???",                   // The name of a certificate in the default certificate directory,
-                                        // blank to use the default product certificate, or an android_app_certificate module name in the form ":module".
-  platform_apis: true,                  // Whether to compile against the platform APIs instead of an SDK.
-                                        // If true, then sdk_version must be empty.
-                                        // The value of this field is ignored when module's type isn't android_app, android_test, or android_test_helper_app.
+  name: "PermissionLogger",                         // The name of the module.
+                                                    // Must be unique across all modules.
+  privileged: true,                                 // Specifies that this app should be installed to the priv-app directory,
+                                                    // where the system will grant it additional privileges not available to normal apps.
+  srcs: ["src/**/*.kt"],                            // list of source files used to compile the Kotlin module.
+                                                    // May be .java, .kt, .logtags, .proto, or .aidl files.
+  static_libs: [                                    // list of java libraries that will be compiled into the resulting jar
+    "androidx.room_room-ktx",
+    "androidx.room_room-common",
+    "androidx.room_room-runtime",
+    "kotlin-stdlib",
+  ],
+  plugins: ["androidx.room_room-compiler-plugin"],  // List of modules to use as annotation processors
+  certificate: "platform",                          // The name of a certificate in the default certificate directory,
+                                                    // blank to use the default product certificate, or an android_app_certificate module name in the form ":module".
+  platform_apis: true,                              // Whether to compile against the platform APIs instead of an SDK.
+                                                    // If true, then sdk_version must be empty.
+                                                    // The value of this field is ignored when module's type isn't android_app, android_test, or android_test_helper_app.
+  min_sdk_version: "30",                            // If not blank, set the minimum version of the sdk that the compiled artifacts will run against.
+  apex_available: ["com.android.permission"]        // Availability of this module in APEXes.
+                                                    // Only the listed APEXes can contain this module.
+                                                    // If the module has stubs then other APEXes and the platform may access it through them (subject to visibility).
 }
